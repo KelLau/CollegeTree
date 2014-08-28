@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Story</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style4.css" />
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/cuf_run.js"></script>
+</head>
+<body>
+<div class="main">
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"><h1><a href="index.html">Our Simple Story</h1><h2>The lives of Jeramie, Rebekah, Kelsey, and Cat</a></h2></div>
+	  <div class="menu_nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="story.html">The Story</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="archive.html">Archive</a></li>
+        </ul>
+        <div class="clr"></div>
+      </div>
+	  <div class="clr"></div>
+    </div>
+  </div>
+  
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+	  This is your next part of the tree.  When you submit it I'll place it in the right area until I can get the site working well.<br>
+	    <textarea name="treeInput" rows="30" cols="50"></textarea>
+       <form name="input" action="demo_form_action.asp" method="get">
+		  Username: <input type="text" name="user">
+		  <input type="submit" value="Submit">
+		</form>
+		
+		<!--Start the server information -->
+		
+		<?php
+		$treeInput = $user = "";
+		
+		if($_SERVER["REQUEST_METHOD"] == "POST"){
+			$treeInput = test_input($_POST["treeInput"]);
+			$user = test_input($_POST["user"]);
+		}
+		
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}
+		
+		?>
+		
+      </div>
+	  <div class="sidebar">
+        <div class="gadget">
+          <h3 class="star"><span>Sidebar</span> Menu</h3>
+          <ul class="sb_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">The Story</a></li>
+            <li><a href="cat.html">Cat</a></li>
+            <li><a href="jeramie.html">Jeramie</a></li>
+            <li><a href="kelsey.html">Kelsey</a></li>
+			<li><a href="rebekah.html">Rebekah</a></li>
+			<li><a href="archive.html">Archive</a></li>
+			
+          </ul>
+        </div>
+        
+    </div>
+  </div>
