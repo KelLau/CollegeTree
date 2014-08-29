@@ -6,8 +6,26 @@
 <link rel="stylesheet" type="text/css" href="style4.css" />
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/tree.js"></script>
 </head>
 <body>
+
+<!--Server info -->
+<script>
+function blogPost() {
+    var x = document.getElementById("post");
+    var text = "";
+    var i;
+    for (i = 0; i < x.length ;i++) {
+        text += x.elements[i].value + "<br>";
+    }
+    document.getElementById("blog").innerHTML = text;
+}
+	
+</script>
+		
+		<!--Main body -->
+
 <div class="main">
 
   <div class="header">
@@ -30,31 +48,15 @@
   <div class="content">
     <div class="content_resize">
       <div class="mainbar">
-	  This is your next part of the tree.  When you submit it I'll place it in the right area until I can get the site working well.<br>
-	    <textarea name="treeInput" rows="30" cols="50"></textarea>
-       <form name="input" action="demo_form_action.asp" method="get">
-		  Username: <input type="text" name="user">
-		  <input type="submit" value="Submit">
+	  This is your next part of the tree.  When you submit it I'll place it in the right area until I can get the site working well.<p>
+	    
+       <form id="post" action="form_action.asp">
+		  <textarea name="treeInput" rows="30" cols="50"></textarea><p>
+		  Username: <input type="text" name="user"><p>
 		</form>
-		
-		<!--Start the server information -->
-		
-		<?php
-		$treeInput = $user = "";
-		
-		if($_SERVER["REQUEST_METHOD"] == "POST"){
-			$treeInput = test_input($_POST["treeInput"]);
-			$user = test_input($_POST["user"]);
-		}
-		
-		function test_input($data) {
-			$data = trim($data);
-			$data = stripslashes($data);
-			$data = htmlspecialchars($data);
-			return $data;
-		}
-		
-		?>
+		<button onclick="WriteDemo()">Submit</button>
+		<br>
+		<p id="blog"></p>
 		
       </div>
 	  <div class="sidebar">
@@ -74,3 +76,7 @@
         
     </div>
   </div>
+  </div>
+  </div>
+  </body>
+  </html>
